@@ -2003,5 +2003,14 @@ IMPLEMENT_GRADIENT_BUILDER(GetReciprocalGradient) {
           NodeDef("Mul", {GO(0), IA("Neg_Square_O0")}, {GI(0)})};
 }
 
+IMPLEMENT_GRADIENT_BUILDER(GetResizeGradient) {
+  std::vector<AttributeProto> attrs;
+  attrs.push_back(MakeAttribute("mode", "linear"));
+  std::vector<float> ScaleVector{1, 1, .5f, .5f};
+  NodeDef scale_node = ConstantVectorNode(ScaleVector, Name("scales"));
+  return std::vector<NodeDef>{scale_node, NodeDef(OpDef{"Resize"}, {GO(0), {}, scale_node.output_args[0]}, {GI(0)}, attrs)};
+    return std::vector<NodeDef>{scale_node,
+                              NodeDef("Resize", {GO(0), {}, scale_node.output_args[0]}, {GI(0)}, attrs)};
+}
 }  // namespace training
 }  // namespace onnxruntime

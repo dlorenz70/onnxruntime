@@ -43,11 +43,11 @@
   <PropertyGroup Condition="('$(OrtPackageId)' == 'Microsoft.ML.OnnxRuntime' OR
                              '$(OrtPackageId)' == 'Microsoft.ML.OnnxRuntime.Azure' OR
                              '$(OrtPackageId)' == 'Microsoft.ML.OnnxRuntime.Gpu')">
-    <Net6Targets>net6.0;net6.0-android;net6.0-ios;net6.0-macos</Net6Targets>
+    <Net6Targets>net6.0;net6.0-ios;net6.0-macos</Net6Targets>
   </PropertyGroup>
 
   <PropertyGroup Condition="('$(OrtPackageId)' == 'Microsoft.ML.OnnxRuntime.Training')">
-    <Net6TargetsForTrainingPackage>net6.0;net6.0-android</Net6TargetsForTrainingPackage>
+    <Net6TargetsForTrainingPackage>net6.0</Net6TargetsForTrainingPackage>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(SelectedTargets)'=='PreNet6'">

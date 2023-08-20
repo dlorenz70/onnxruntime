@@ -87,6 +87,7 @@ DECLARE_GRADIENT_BUILDER(GetFakeQuantGradient)
 DECLARE_GRADIENT_BUILDER(GetLSTMGradient)
 DECLARE_GRADIENT_BUILDER(GetReciprocalGradient)
 
+DECLARE_GRADIENT_BUILDER(GetResizeGradient)
 DECLARE_GRADIENT_BUILDER(GetExternalGradient)
 
 }  // namespace training
